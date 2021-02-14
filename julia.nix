@@ -128,7 +128,8 @@ let
   env_vars = ''
     export EXTRA_CCFLAGS="-I/usr/include"
 
-    export JULIA_DEPOT_PATH="~/.julia-1.6:$JULIA_DEPOT_PATH"
+    # Uncomment this to use a different path for Julia.
+    # export JULIA_DEPOT_PATH="~/.julia-1.6:$JULIA_DEPOT_PATH"
   '';
   extraOutputsToInstall = ["man" "dev"];
   multiPkgs = pkgs: with pkgs; [ zlib ];
@@ -144,6 +145,7 @@ let
 
   julia-fhs = pkgs.buildFHSUserEnv {
     targetPkgs = targetPkgs;
+    # Change this to julia if you want to only use Julia 1.6.
     name = "j16"; # Name used to start this UserEnv
     multiPkgs = multiPkgs;
     runScript = "julia";
