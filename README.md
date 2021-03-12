@@ -2,6 +2,13 @@
 
 NixOS derivation for Julia 1.6.
 
+In practise, this derivation works well for me.
+It's how I use Julia daily and do most of my development.
+However, I found two issues with this derivation:
+
+- REPL crashes in some cases when terminating a running process (https://github.com/timholy/Revise.jl/issues/602)
+- Cairo.jl doesn't work (https://github.com/JuliaGraphics/Cairo.jl/issues/336)
+
 ## Usage
 
 Place the file next to `/etc/nixos/configuration.nix` and import it with
