@@ -4,8 +4,8 @@ let
   julia_16 = pkgs.stdenv.mkDerivation {
     name = "julia_16";
     src = pkgs.fetchurl {
-      url = "https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.0-linux-x86_64.tar.gz";
-      sha256 = "11c5pp8mfb00sr2fpifyx00pj6h5638mavgxw3098w6af3f72fs6";
+      url = "https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.1-linux-x86_64.tar.gz";
+      sha256 = "01i5sm4vqb0y5qznql571zap19b42775drrcxnzsyhpaqgg8m23w";
     };
     installPhase = ''
       mkdir $out
@@ -129,6 +129,7 @@ let
     export EXTRA_CCFLAGS="-I/usr/include"
 
     # Uncomment this to use a different path for Julia.
+    # Note that multiple Julia versions can use the same depot path without problems.
     # export JULIA_DEPOT_PATH="~/.julia-1.6:$JULIA_DEPOT_PATH"
   '';
   extraOutputsToInstall = ["man" "dev"];
@@ -145,8 +146,7 @@ let
 
   julia-fhs = pkgs.buildFHSUserEnv {
     targetPkgs = targetPkgs;
-    # Change this to julia if you want to only use Julia 1.6.
-    name = "j16"; # Name used to start this UserEnv
+    name = "julia"; # Name used to start this UserEnv
     multiPkgs = multiPkgs;
     runScript = "julia";
     extraOutputsToInstall = extraOutputsToInstall;
