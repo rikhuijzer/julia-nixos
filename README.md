@@ -21,7 +21,7 @@ after a
 ```
 nixos-rebuild switch
 ```
-you will have Julia 1.6 available when running `j16`.
+you will have Julia 1.6 available globally.
 
 ## Extra
 
